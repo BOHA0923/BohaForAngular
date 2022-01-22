@@ -1,0 +1,36 @@
+﻿部署步骤
+vs中：
+
+#在 t21* 分之下  將 origin/develop 分支內容 merge 到 t21* 分支中
+> git merge origin/develop
+# 切換到local 端的develop 分支 (請注意local端有develop分支嗎?)
+> git checkout develop 
+# 取得最新的分支資料到local端; 
+> git pull 
+# 將local端 t21* 分支merge 到 local develop 分支
+> git merge t21*
+# 將local端develop 分支推到 origin/develop 分支
+> git push
+
+3.撰写规范检查，有报错需调整对应的报错点->npm run lint
+4.打包代码->npm run build-prod
+5.切换至build分支->git checkout build
+6.更新build分支->git pull
+7.提交更新内容->git push
+8.将develop分支整合到build分支->git merge develop
+9.提交更新内容->git push
+
+网页中：
+10.打包image http://10.40.40.152:22690(账密：admin/admin)
+11.检视image http://10.40.40.152:81/
+12.部署image http://dc.10.40.46.31.nip.io/(账密：admin/admin)
+
+vs中：
+13.更新版本号->git pull
+14.提交版本号->git push
+15.切换develop分支->git checkout develop
+16.更新develop分支->git pull
+17.提交更新内容->git push
+18.将build分支整合到develop分支->git merge build
+19.提交更新内容->git push
+
